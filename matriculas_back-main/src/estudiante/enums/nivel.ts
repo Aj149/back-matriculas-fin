@@ -1,5 +1,6 @@
 export enum NivelInstitucion {
   Escuela = 'escuela',
   Colegio = 'colegio', 
-  Universidad = 'universidad'
+  Universidad = 'universidad',
+  preUniversidad = 'preUniversidad'
 }

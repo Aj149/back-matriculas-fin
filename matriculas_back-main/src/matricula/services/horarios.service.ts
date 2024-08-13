@@ -250,6 +250,35 @@ export class HorarioService {
         );
       }
     }
+
+
+
+    if (updateHorarioDto.modalidad === Modalidad.Presencial || updateHorarioDto.modalidad === Modalidad.Virtual) {
+
+      
+      if (!updateHorarioDto.aulaId) {
+        throw new NotFoundException('Debe especificar un aula para la modalidad presencial o virtual.');
+      }
+    
+
+      const aula = await this.aulaRepository.findOne({ where: { id_aula: updateHorarioDto.aulaId } });
+    
+
+      if (!aula) {
+        throw new NotFoundException(`Aula con ID ${updateHorarioDto.aulaId} no encontrada`);
+      }
+    
+      
+      existingHorario.aula = aula;
+    } else {
+      
+      existingHorario.aula = null;
+    }
+
+
+
+
+    
     // Actualizar los campos del horario
     existingHorario.dia = updateHorarioDto.dia;
     existingHorario.horaInicio = updateHorarioDto.horaInicio;

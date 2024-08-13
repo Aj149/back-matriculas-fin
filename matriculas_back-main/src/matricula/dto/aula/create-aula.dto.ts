@@ -1,4 +1,4 @@
-import { IsPositive, IsString } from "class-validator";
+import { IsPositive, IsString, IsNotEmpty} from "class-validator"; //"GENESIS" Se importa el IsNotEmpty//
 
 export class CreateAulaDto {
     
@@ -8,4 +8,7 @@ export class CreateAulaDto {
     @IsPositive()
     capacidad: number;
 
+    @IsString() 
+    @IsNotEmpty() 
+    tipoAula: string; 
 }

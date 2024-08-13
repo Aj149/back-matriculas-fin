@@ -1,8 +1,8 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { EstudianteEntity } from "./estudiante.entity";
 import { TipoInstitucion } from "../enums/tipoInstitucion";
-import { NivelInstitucion } from "../enums/nivel";
 import { Jornada } from "../enums/jornada";
+import { NivelInstitucion } from "../enums/nivel";
 
 @Entity('institucion', {schema: 'estudiante' })
 export class InstitucionEntity {
@@ -22,7 +22,10 @@ export class InstitucionEntity {
     grado: string;
     
     @Column({ type: 'varchar' })
-    jornada: Jornada;   
+    jornada: Jornada;  
+    
+    @Column({ type: 'varchar', length: 9, nullable: true })
+    anoLectivo: string;
     
     @Column({
         name: 'is_active',

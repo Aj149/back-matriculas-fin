@@ -11,12 +11,16 @@ export class CreateInstitucionDto {
 
     @IsEnum(TipoInstitucion, { message: 'solo publica o privada' })
     tipo: TipoInstitucion;
-    
-    @IsEnum(NivelInstitucion, { message: 'solo escuela, colegio o universidad' })
+
+    @IsEnum(NivelInstitucion, { message: 'solo escuela, colegio, universidad o pre-Universidad' })
     nivel: NivelInstitucion;
 
     @IsString()
     grado: string;
+
+    @IsString({ message: 'solo numeros' })
+    anoLectivo: string;
+
     
     @IsEnum(Jornada, { message: 'solo matutino, vespertino y nocturno' })
     jornada: Jornada;    

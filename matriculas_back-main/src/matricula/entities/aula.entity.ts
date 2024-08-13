@@ -20,6 +20,9 @@ export class AulaEntity {
   @Column('integer')
   capacidad: number;
 
+  @Column('varchar', { length: 20, nullable: true})
+  tipoAula: string;
+
   @Column({
     name: 'is_active',
     type: 'boolean',
